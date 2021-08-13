@@ -24,6 +24,8 @@ class _demovisitorlistState extends State<demovisitorlist> {
 
   @override
   Widget build(BuildContext context) {
+    //double width = MediaQuery.of(context).size.width;
+    //double height = MediaQuery.of(context).size.height;
     return Scaffold(
         appBar: AppBar(
           title: Text(' Upcoming Visitor Meets'),
@@ -39,7 +41,7 @@ class _demovisitorlistState extends State<demovisitorlist> {
                 child:
                 Container(
                   padding: EdgeInsets.all(5.0),
-                  margin: EdgeInsets.all(10.0),
+                  margin: EdgeInsets.all(2.0),
                   color: Colors.blue[100],
                   child: Container(
                     child: Column(
@@ -47,7 +49,9 @@ class _demovisitorlistState extends State<demovisitorlist> {
                       mainAxisAlignment: MainAxisAlignment.start,
 
                       children:<Widget>[
-
+                        SizedBox(
+                          height: 20,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,52 +67,99 @@ class _demovisitorlistState extends State<demovisitorlist> {
 
                               ],
                             ),
-                            SizedBox(height: 50.0,),
+                            SizedBox(height: 60.0,),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
 
                               children: <Widget>[
                                 Text('Name : ' + visitors[index].nm),
-                                SizedBox(height: 5.0,),
-                                Text('Contact NO: ' + visitors[index].mobno),
-                                SizedBox(height: 5.0,),
+                                SizedBox(height: 13.0,),
+                                Text('Contact No.: ' + visitors[index].mobno),
+                                SizedBox(height: 13.0,),
                                 Text('Purpose: ' + visitors[index].purpose),
-                                SizedBox(height: 5.0,),
+                                SizedBox(height: 13.0,),
                                 Text('Fever: ' + visitors[index].fever),
                               ],
                             ),
                           ],
                         ),
-                        SizedBox(height: 10.0,),
+                        SizedBox(height: 25.0,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
 
                           children: <Widget>[
                             SizedBox(width: 100.0,
                               child:ElevatedButton(
-                                  onPressed: (){},
-                                  child: Text('Accept')
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.lightGreenAccent,
+                                  ),
+                                  onPressed: (){
+                                    //print(width);
+                                    //print(height);
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(
+                                          Icons.check_box,
+                                        size: 18,
+                                      ),
+                                      Text('Accept'),
+                                    ],
+                                  )
                               ),
                             ),
 
-                            SizedBox(width: 100.0,
+                            SizedBox(width: 120.0,
                               child:ElevatedButton(
+
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.blue,
+                                  ),
                                   onPressed: (){},
-                                  child: Text('Reschedule')
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(
+
+                                        Icons.access_time,
+                                        size: 18,
+                                      ),
+                                      Text('Reschedule',style: TextStyle(
+                                        fontSize: 12
+                                      ),),
+                                    ],
+                                  )
                               ),
                             ),
 
 
                             SizedBox(width: 100.0,
                               child:ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Colors.red,
+                                  ),
                                   onPressed: (){},
-                                  child: Text('Deny')
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Icon(
+                                        Icons.stop_circle_outlined,
+                                        size: 20,
+                                        color: Colors.white,
+                                      ),
+
+                                      Text('Deny'),
+                                    ],
+                                  )
                               ),
                             )
 
                           ],
                         ),
-
+                        SizedBox(
+                          height: 20,
+                        )
                       ],
 
                     ),
